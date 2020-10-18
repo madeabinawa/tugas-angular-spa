@@ -1,0 +1,25 @@
+<div class="content" fxLayout="column" fxLayoutAlign="start">
+  <h1 class="title-center">Books List</h1>
+  <div class="content" fxLayoutGap="16px grid" fxLayout="row" fxLayoutAlign="space-evenly stretch">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let product of products">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>{{product.nama}}</mat-card-title>
+          <mat-card-subtitle>${{product.harga}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{product.gambar}}" />
+        <mat-card-content>
+          <p *ngIf="product.deskripsi">{{product.deskripsi}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button (click)="keranjang()">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+          <button mat-icon-button (click)="wishlist()">
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
